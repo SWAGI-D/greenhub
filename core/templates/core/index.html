@@ -1,0 +1,215 @@
+{% extends 'core/base.html' %}
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row align-items-center">
+    <div class="col-md-8 d-flex align-items-center">
+      <h1 class="me-3">Welcome to GreenHub</h1>
+    </div>
+    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+      <a href="{% url 'plant_a_tree' %}" class="btn btn-success text-white text-decoration-none">
+        Plant a Tree
+      </a>
+    </div>
+  </div>
+
+  <p class="lead mt-3">Share and explore ideas on living sustainably.</p>
+</div>
+
+<!-- Upload Button -->
+{% if user.is_authenticated %}
+<div class="text-end mb-4">
+    <a href="{% url 'upload_post' %}" class="btn btn-success">Upload Your Sustainable Moment</a>
+</div>
+{% endif %}
+
+
+
+<h2 class="mt-5 mb-3">Quizzes</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
+    <!-- Food Waste Quiz Card -->
+    <div class="col">
+        <div class="card quiz-card h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">Food Waste Quiz</h5>
+                    <p class="card-text">Test your knowledge about reducing food waste and sustainable eating habits</p>
+                </div>
+                <a href="{% url 'food_waste_quiz' %}" class="btn custom-outline-green mt-3">Take Quiz</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Water Conservation Quiz Card -->
+    <div class="col">
+        <div class="card quiz-card h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">Water Conservation Quiz </h5>
+                    <p class="card-text">Learn how to conserve water at home and build better habits</p>
+                </div>
+                <a href="{% url 'water_conservation_quiz' %}" class="btn custom-outline-green mt-3">Take Quiz</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Energy Saving Quiz Card -->
+    <div class="col">
+        <div class="card quiz-card h-100">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">Energy Saving Quiz </h5>
+                    <p class="card-text">Find out how much you know about saving electricity and reducing energy use at home</p>
+                </div>
+                <a href="{% url 'energy_quiz' %}" class="btn custom-outline-green mt-3">Take Quiz</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card quiz-card h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+                <h5 class="card-title">Carbon Footprint Estimator</h5>
+                <p class="card-text">Estimate your environmental impact based on your lifestyle.</p>
+            </div>
+            <a href="{% url 'carbon_footprint_quiz' %}" class="btn custom-outline-green mt-3">Estimate Now!</a>
+        </div>
+    </div>
+</div>
+
+<h2 class="mt-5">Blog Posts</h2>
+<form method="GET" class="d-flex mb-4">
+  <input type="text" class="form-control me-2 w-25" name="q" placeholder="Search posts..." id="blogSearch">
+  <button class="btn btn-success" type="submit">Search</button>
+</form>
+
+<div class="blog-scroll d-flex flex-row overflow-auto gap-3 py-3" id="blogContainer">
+  {% comment %} Blog Card 1 {% endcomment %}
+  <div class="card shadow-sm" style="min-width: 280px; max-width: 280px;">
+    <img src="{% static 'core/images/food_scraps_to_manure.jpeg' %}" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Composting">
+    <div class="card-body">
+      <h5 class="card-title">How to Turn Food Scraps into Manure</h5>
+      <p class="card-text">Discover simple steps to compost your kitchen waste and create nutrient-rich soil at home.</p>
+      <a href="{% url 'blog_food_scraps' %}" class="btn btn-outline-success">Read More</a>
+    </div>
+  </div>
+
+  {% comment %} Blog Card 2 {% endcomment %}
+  <div class="card shadow-sm" style="min-width: 280px; max-width: 280px;">
+    <img src="{% static 'core/images/plastic_pollution_ocean.jpeg' %}" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Plastic Pollution">
+    <div class="card-body">
+      <h5 class="card-title">How Plastic Pollution is Destroying Our Oceans</h5>
+      <p class="card-text">Learn how everyday plastic use contributes to ocean pollution and what you can do to help.</p>
+      <a href="{% url 'blog_plastic_pollution' %}" class="btn btn-outline-success">Read More</a>
+    </div>
+  </div>
+
+  {% comment %} Blog Card 3 {% endcomment %}
+  <div class="card shadow-sm" style="min-width: 280px; max-width: 280px;">
+    <img src="{% static 'core/images/green_energy.jpeg' %}" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Green Energy">
+    <div class="card-body">
+      <h5 class="card-title">Why Switching to Green Energy Matters</h5>
+      <p class="card-text">Explore how renewable energy sources can help reduce carbon emissions and save the planet.</p>
+      <a href="{% url 'blog_green_energy' %}" class="btn btn-outline-success">Read More</a>
+    </div>
+  </div>
+
+    {% comment %} Blog Card 4 {% endcomment %}
+   <div class="card shadow-sm" style="min-width: 280px; max-width: 280px;">
+  <img src="{% static 'core/images/urban_gardening.jpeg' %}" class="card-img-top" style="height: 160px; object-fit: cover;"  alt="Urban Gardening">
+  <div class="card-body">
+    <h5 class="card-title">Urban Gardening for Beginners</h5>
+    <p class="card-text">Grow herbs and veggies even in small spaces with recycled containers and vertical garden tips.</p>
+    <a href="{% url 'blog_urban_gardening' %}" class="btn btn-outline-success">Read More</a>
+  </div>
+</div>
+    {% comment %} Blog Card 5 {% endcomment %}
+     <div class="card shadow-sm" style="min-width: 280px; max-width: 280px;">
+  <img src="{% static 'core/images/5rs_sustainability.jpeg' %}" class="card-img-top" style="height: 160px; object-fit: cover;"  alt="Urban Gardening">
+  <div class="card-body">
+    <h5 class="card-title">Mastering the 5 R’s </h5>
+    <p class="card-text">Learn how to Refuse, Reduce, Reuse, Repurpose, and Recycle more effectively in daily life.</p>
+    <a href="{% url 'blog_5rs_sustainability' %}" class="btn btn-outline-success">Read More</a>
+  </div>
+</div>
+</div>
+
+<h2 class="mt-5 mb-3">Recently Shared Logs</h2>
+<div class="row">
+  {% for entry in public_entries|slice:":6" %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ entry.user.username }} – {{ entry.date }}</h5>
+          <p class="card-text">
+            {% for action in entry.actions %}
+              <span class="badge bg-success me-1">{{ action|cut:"_"|title }}</span>
+            {% endfor %}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+  <a href="{% url 'public_log_summary' %}" class="btn btn-outline-success">
+    View All Users’ Log Summaries
+  </a>
+</div>
+
+
+{% if user.is_authenticated %}
+  <a href="{% url 'log_sustainability_entry' %}" class="btn btn-outline-success mt-3">
+    Log Your Sustainable Action
+  </a>
+{% else %}
+  <p class="mt-3">Want to share your actions? <a href="{% url 'login' %}">Log in</a> to get started.</p>
+{% endif %}
+
+
+<h2 class="mt-5"> Sustainable Moments </h2>
+<div class="row">
+    {% for post in posts %}
+   <div class="col-md-4 d-flex">
+    <div class="card sustainability-card mb-4 w-100">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+        <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.description|truncatewords:20 }}</p>
+                <p class="text-muted">Posted by {{ post.user.username }}</p>
+            </div>
+            <a href="{% url 'post_detail' post.id %}" class="btn btn-success mt-2">View</a>
+        </div>
+    </div>
+</div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.querySelector('input[name="q"]');
+    const blogCards = document.querySelectorAll('.blog-scroll .card');
+
+    searchInput.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+
+      blogCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const text = card.querySelector('.card-text').textContent.toLowerCase();
+
+        if (title.includes(query) || text.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+{% endblock %}

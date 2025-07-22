@@ -1,0 +1,50 @@
+[
+{
+  "model": "core.post",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "title": "Nam's sustainability",
+    "description": "I am sustainable af",
+    "image": "uploads/WhatsApp_Image_2025-07-15_at_19.01.59.jpeg",
+    "caption": "",
+    "timestamp": "2025-07-15T23:02:12.919Z"
+  }
+},
+{
+  "model": "core.post",
+  "pk": 3,
+  "fields": {
+    "user": 2,
+    "title": "Making the earth greener!",
+    "description": "Gardening with my wife <3",
+    "image": "uploads/2148165222.jpg",
+    "caption": "",
+    "timestamp": "2025-07-20T21:13:14.457Z"
+  }
+},
+{
+  "model": "core.post",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "title": "Beach cleaning day",
+    "description": "Had the best time cleaning the beach yesterday!",
+    "image": "uploads/maxresdefault_ANwOj6S.jpg",
+    "caption": "",
+    "timestamp": "2025-07-20T21:55:44.890Z"
+  }
+},
+{
+  "model": "core.post",
+  "pk": 6,
+  "fields": {
+    "user": 4,
+    "title": "Making compost",
+    "description": "Look at me being green!!",
+    "image": "uploads/GettyImages-1334653822-cb857a760a2b40bdb49c88789656c6d1.jpg",
+    "caption": "",
+    "timestamp": "2025-07-20T23:23:20.305Z"
+  }
+}
+]

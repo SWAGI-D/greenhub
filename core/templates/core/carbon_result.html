@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+{% block title %}Your Footprint Result{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-success">Your Carbon Footprint Result</h2>
+    <p class="lead">{{ result }}</p>
+    <a href="{% url 'index' %}" class="btn btn-outline-primary mt-3">Back to Home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% block title %}Post Details{% endblock %}
+
+{% block content %}
+<div class="container">
+    <img src="{{ post.image.url }}" class="img-fluid mb-3" alt="{{ post.title }}" />
+
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.description }}</p>
+    <p class="text-muted">Posted by {{ post.user.username }} on {{ post.timestamp|date:"F j, Y, g:i a" }}</p>
+
+    <hr>
+
+    <p><strong>Likes:</strong> {{ post.like_set.count }}</p>
+
+    {% if user.is_authenticated and user != post.user %}
+        <form method="post" action="{% url 'like_post' post.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-success">Like</button>
+        </form>
+    {% elif not user.is_authenticated %}
+        <p><em><a href="{% url 'login' %}">Log in</a> to like this post.</em></p>
+    {% else %}
+        <p><em>You cannot like your own post.</em></p>
+    {% endif %}
+
+    <hr>
+
+    <h4>Comments</h4>
+    {% for comment in post.comment_set.all %}
+        <p><strong>{{ comment.user }}:</strong> {{ comment.content }}</p>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+
+    {% if user.is_authenticated and user != post.user %}
+        <form method="post" action=".">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit" class="btn btn-info">Comment</button>
+        </form>
+    {% elif not user.is_authenticated %}
+        <p><em><a href="{% url 'login' %}">Log in</a> to comment on this post.</em></p>
+    {% else %}
+        <p><em>You cannot comment on your own post.</em></p>
+    {% endif %}
+
+    {% if user == post.user %}
+        <hr>
+        <h5>Manage This Post</h5>
+        <form action="{% url 'delete_post' post.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Post</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

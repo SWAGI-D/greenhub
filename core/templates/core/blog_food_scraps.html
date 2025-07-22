@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %}
+
+{% block title %}How to Turn Food Scraps into Manure{% endblock %}
+
+{% block content %}
+<a href="{% url 'index' %}" class="btn btn-success mt-4">⬅ Back to Home</a>
+
+<div class="container py-4">
+
+    <h2>How to Turn Food Scraps into Manure</h2>
+    <p>Transforming your food scraps into rich compost is a great way to reduce waste and nourish your garden...</p>
+    <ul>
+        <li>Collect vegetable peels, eggshells, coffee grounds (avoid meat/dairy).</li>
+        <li>Use a compost bin with proper airflow.</li>
+        <li>Mix green (wet) and brown (dry) materials for balance.</li>
+        <li>Turn the pile every week for aeration.</li>
+        <li>In a few months, you'll have dark, earthy compost!</li>
+    </ul>
+</div>
+{% endblock %}

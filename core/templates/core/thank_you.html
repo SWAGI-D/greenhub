@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+  <div class="text-center mt-5">
+    <h2>Thank You for Participating!</h2>
+    <p>Your responses have been submitted successfully.</p>
+    <a href="{% url 'index' %}" class="btn btn-success mt-3">Back to Home</a>
+  </div>
+{% endblock %}

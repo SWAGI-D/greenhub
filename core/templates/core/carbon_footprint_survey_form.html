@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% block title %}Carbon Footprint Quiz {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-success">🌿 Carbon Footprint Estimator</h2>
+    <p>Answer a few questions to estimate your lifestyle’s carbon footprint.</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Main Mode of Transport</label>
+            {{ form.transport_mode }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Your Diet Type</label>
+            {{ form.diet_type }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Electricity Usage</label>
+            {{ form.electricity_usage }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">✈Flights Taken Per Year</label>
+            {{ form.flight_frequency }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Shopping Habits</label>
+            {{ form.shopping_habits }}
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}

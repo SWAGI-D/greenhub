@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Meet the Team{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-success mb-4 text-center"> Meet the Team</h2>
+  <p class="text-center mb-5">The people behind GreenHub who are passionate about building a sustainable future.</p>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <!-- Team Member 1 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{% static 'core/images/spatika.jpeg' %}" class="card-img-top" alt="Spatika">
+        <div class="card-body text-center">
+          <h5 class="card-title">Spatika</h5>
+          <p class="card-text">Founder & Sustainability Advocate</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member 2 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{% static 'core/images/namratha.jpeg' %}" class="card-img-top" alt="Namratha">
+        <div class="card-body text-center">
+          <h5 class="card-title">Namratha</h5>
+          <p class="card-text">Content Curator & Community Manager</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member 3 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{% static 'core/images/swagi.jpeg' %}" class="card-img-top" alt="Swagi">
+        <div class="card-body text-center">
+          <h5 class="card-title">Swagi</h5>
+          <p class="card-text">Tech Lead & Eco Designer</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Member 4 -->
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{% static 'core/images/sana.jpeg' %}" class="card-img-top" alt="Sana">
+        <div class="card-body text-center">
+          <h5 class="card-title">Sana</h5>
+          <p class="card-text">Entertainer</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fundraising Section -->
+<div class="mt-5">
+  <h3 class="text-center text-success mb-3">Together for a Greener Tomorrow</h3>
+
+  <p class="text-center mb-4 px-3">
+    At GreenHub, we go beyond awareness and action — we organize local fundraising events to support environmental initiatives,
+    promote clean energy adoption, and build greener communities. This photo was taken during one of our recent events where we raised
+    funds for urban tree planting and community composting projects.
+  </p>
+
+  <div class="text-center">
+    <img src="{% static 'core/images/group.jpeg' %}" class="img-fluid rounded shadow" alt="GreenHub Fundraiser Event Photo" style="max-width: 600px; width: 100%; height: auto;">
+  </div>
+</div>
+</div>
+{% endblock %}

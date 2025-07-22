@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Log Sustainable Actions</h2>
+  <form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="id_date" class="form-label">Date</label>
+      <input type="date" name="date" class="form-control" id="id_date" value="{{ form.date.value|default:'' }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Actions:</label>
+      <div class="form-check">
+        {% for checkbox in form.actions %}
+          <div class="form-check">
+            {{ checkbox.tag }} {{ checkbox.choice_label }}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+   <div class="form-check mb-3">
+    {{ form.is_public }}
+    <label for="{{ form.is_public.id_for_label }}" class="form-check-label">Make this public</label>
+</div>
+
+</div>
+
+    <button type="submit" class="btn btn-success mt-4">Save Entry</button>
+  </form>
+</div>
+{% block scripts %}
+<script>
+  flatpickr("#id_date", {
+    dateFormat: "Y-m-d",
+    defaultDate: "{{ today }}",
+    maxDate: "today"
+  });
+</script>
+{% endblock %}
+{% endblock %}
+

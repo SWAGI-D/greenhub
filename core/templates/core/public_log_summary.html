@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% block title %}All Log Summaries{% endblock %}
+
+{% block content %}
+<a href="{% url 'index' %}" class="btn btn-success mt-4">⬅ Back to Home</a>
+<div class="container mt-5">
+  <h2 class="mb-4">Public Sustainability Log Summaries</h2>
+
+  {% if summaries %}
+    <ul class="list-group">
+      {% for user in summaries %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ user.user__username }}
+          <span class="badge bg-success rounded-pill">{{ user.total_logs }} Logs</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No public logs found yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

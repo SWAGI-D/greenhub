@@ -1,0 +1,13 @@
+<!-- core/templates/core/upload_post.html -->
+
+{% extends 'core/base.html' %}
+{% block title %}Upload Sustainable Moment{% endblock %}
+{% block content %}
+<h2>Share Your Sustainable Moment </h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success" type="submit">Submit</button>
+</form>
+{% endblock %}

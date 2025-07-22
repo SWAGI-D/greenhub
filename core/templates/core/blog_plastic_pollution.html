@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Plastic Pollution in Oceans - GreenHub{% endblock %}
+
+{% block content %}
+ <a href="{% url 'index' %}" class="btn btn-success mt-4">Back to Home</a>
+<div class="container py-4">
+
+    <h2 class="mb-4">How Plastic Pollution is Destroying Our Oceans</h2>
+
+    <img src="{% static 'core/images/plastic_pollution_ocean.jpeg' %}" alt="Plastic in Ocean" class="img-fluid rounded mb-4">
+
+    <p>
+        Plastic pollution is one of the most pressing environmental issues of our time. Every year, millions of tons of plastic waste enter our oceans,
+        harming marine life and disrupting ecosystems.
+    </p>
+
+    <h4>The Problem</h4>
+    <p>
+        From plastic bags and bottles to microplastics, synthetic waste ends up in the water due to littering, inefficient waste management,
+        and excessive single-use plastic consumption. Marine animals often mistake plastic for food, which leads to injury or death.
+    </p>
+
+    <h4>What You Can Do</h4>
+    <ul>
+        <li>Switch to reusable bags, bottles, and containers.</li>
+        <li>Avoid products with microbeads.</li>
+        <li>Recycle responsibly and reduce overall plastic use.</li>
+        <li>Participate in local beach cleanups or community awareness programs.</li>
+    </ul>
+
+    <p>
+        By making small, conscious changes in our daily lives, we can help protect our oceans and preserve marine life for future generations.
+    </p>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>Welcome, {{ user.username }}! 👋</h2>
+
+        <div class="card my-4">
+            <div class="card-body">
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+                <p><strong>Total Posts:</strong> {{ user.post_set.count }}</p>
+            </div>
+        </div>
+        <h3>Quizzes Taken </h3>
+<ul>
+  {% if food_quiz_taken %}
+    <li>Food Waste Quiz</li>
+  {% endif %}
+  {% if water_quiz_taken %}
+    <li>Water Conservation Quiz</li>
+  {% endif %}
+    {% if energy_quiz_taken %}
+    <li>Energy Quiz</li>
+  {% endif %}
+  {% if not food_quiz_taken and not water_quiz_taken and not energy_quiz_taken %}
+    <li>You haven’t taken any quizzes yet.</li>
+  {% endif %}
+</ul>
+        <h3>Carbon Footprint Estimation</h3>
+{% if carbon_score %}
+    <p>Your estimated carbon footprint score: <strong>{{ carbon_score }}</strong></p>
+{% else %}
+    <p>You haven't completed the Carbon Footprint Estimator yet.</p>
+{% endif %}
+        <h4>Your Sustainable Moments</h4>
+        <div class="row">
+            {% for post in user.post_set.all %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="Post image">
+                    <div class="card-body">
+                        <p class="card-text">{{ post.caption|truncatewords:12 }}</p>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-outline-success btn-sm">View</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>You haven’t uploaded any posts yet.</p>
+            {% endfor %}
+            {% if user.is_authenticated %}
+
+            <div style="background-color: #d9f5fc; border-radius: 10px; padding: 20px;">
+  <h5><strong>Visit History:</strong></h5>
+  <p>Total Visits: {{ visit_data.total_visits }}</p>
+  <p>Visits Today: {{ visit_data.visits_today }}</p>
+  <p>Last Visit: {{ visit_data.last_visited }}</p>
+</div>
+
+
+{% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

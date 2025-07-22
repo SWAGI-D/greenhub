@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Terms of Service{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <h2 class="text-success mb-4">Terms of Service</h2>
+
+  <p class="small text-muted">Last updated: July 20, 2025</p>
+
+  <p>
+    By accessing and using <strong>GreenHub</strong>, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
+  </p>
+
+  <h5 class="mt-4">1. Use of the Website</h5>
+  <p>
+    GreenHub provides a platform to explore and contribute ideas about sustainable living. You agree to use the site responsibly, respectfully, and for lawful purposes only.
+  </p>
+
+  <h5 class="mt-4">2. User Contributions</h5>
+  <p>
+    When you submit content (posts, questions, diary entries), you grant GreenHub the right to display and use it in accordance with our mission. Offensive or misleading content may be removed.
+  </p>
+
+  <h5 class="mt-4">3. Privacy</h5>
+  <p>
+    We respect your privacy. Please refer to our Privacy Policy to understand how your information is collected and used.
+  </p>
+
+  <h5 class="mt-4">4. Account Security</h5>
+  <p>
+    You are responsible for maintaining the confidentiality of your account and password and for restricting access to your device.
+  </p>
+
+  <h5 class="mt-4">5. Modifications to the Service</h5>
+  <p>
+    We may update or modify the platform at any time, with or without notice, to improve your experience or maintain security.
+  </p>
+
+  <h5 class="mt-4">6. Disclaimer</h5>
+  <p>
+    GreenHub is an educational and community platform. We do not provide professional environmental, medical, or legal advice.
+  </p>
+
+  <h5 class="mt-4">7. Contact Us</h5>
+  <p>
+    If you have any questions about these Terms, please <a href="{% url 'contact' %}">contact us</a>.
+  </p>
+</div>
+{% endblock %}
